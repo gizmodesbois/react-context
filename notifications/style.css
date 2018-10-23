@@ -1,0 +1,123 @@
+:root {
+  --notification-info: #0CAAAA;
+  --notification-info-darken: #32d0d0;
+  --notification-success: #3ECF8E;
+  --notification-success-darken: rgb(44, 158, 107);
+  --notification-warning: #FDD760;
+  --notification-warning-darken: #ffe69d;
+  --notification-alert: #e74c3c;
+  --notification-fail: #e74c3c;
+}
+
+#notifications {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 20;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+  
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  flex: 1;
+}
+
+.notification-title {
+  font-weight: bold;
+}
+
+.notification-icon {
+  font-size: 42px;
+}
+
+.notification-close {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+}
+
+.notification-close .notification-icon-close {
+  color: white;
+}
+
+.notification-close svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+.notification-close svg circle {
+  stroke-dasharray: 113px;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  stroke-width: 2px;
+  stroke: white;
+  fill: none;
+  animation: countdown 3s linear infinite forwards;
+}
+  
+.notification-icon-close {
+  margin-top: 7px;
+  line-height: 40px;
+}
+  
+.notification {
+  margin-top: 20px;
+  padding: 10px 15px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 400px;
+  box-shadow: 0 3px 15px 0 rgba(35,35,65,0.28), 0 3px 17px 0 rgba(0,0,0,0.08);
+}
+
+.notification.info {
+  background-color: var(--notification-info);
+}
+.notification.info .notification-icon {
+  color: var(--notification-info-darken);
+}
+
+.notification.success {
+  background-color: var(--notification-success);
+}
+.notification.success .notification-icon {
+  color: var(--notification-success-darken);
+}
+
+.notification.alert {
+  background-color: var(--notification-alert);
+}
+.notification.alert .notification-icon {
+  color: var(--notification-alert-darken);
+}
+
+.notification.warning {
+  background-color: var(--notification-warning);
+}
+.notification.warning .notification-icon {
+  color: var(--notification-warning-darken);
+}
+  
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 113px;
+  }
+}
